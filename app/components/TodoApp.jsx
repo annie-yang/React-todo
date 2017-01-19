@@ -11,8 +11,8 @@ var TodoApp = React.createClass({
   // return default state of our application
   getInitialState: function () {
     return {
-      showCompleted: false,
-      searchText: '',
+      showCompleted: false, // when start application, only see todos you haven't completed
+      searchText: '', // set to empty string because you want to return all todo items no matter what the text is
       todos: TodoAPI.getTodos()
     };
   },
@@ -22,9 +22,12 @@ var TodoApp = React.createClass({
   handleAddTodo: function (text) {
     this.setState({
       todos: [
-        ...this.state.todos,
+        ...this.state.todos, // include ALL old todos
+        /*
+          adding new todo items
+        */
         {
-          id: uuid(),
+          id: uuid(), // generate universely unique identifier (long string that is completely unique and random)
           text: text,
           completed: false,
           createdAt: moment().unix(),

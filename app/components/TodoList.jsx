@@ -33,9 +33,10 @@ export var TodoList = React.createClass({
       });
     };
 
+    // custom renderer
     return (
       <div>
-        {renderTodos()} // custom renderer
+        {renderTodos()}
       </div>
     )
   }

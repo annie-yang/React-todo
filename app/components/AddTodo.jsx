@@ -12,6 +12,7 @@ export var AddTodo = React.createClass({
       this.refs.todoText.value = '';
       dispatch(actions.addTodo(todoText));
     } else {
+      // if user clicks 'add task' button, and there isn't valid input, it will put the cursor back in input field automatically
       this.refs.todoText.focus();
     }
   },

@@ -37,8 +37,16 @@ describe('TodoList', () => {
       </Provider>
     );
     var todoList = TestUtils.scryRenderedComponentsWithType(provider, ConnectedTodoList)[0];
+
+    /*
+      store all todos components found in our todo list
+      'scryRenderedComponentsWithType' check how many of given components are rendered into a separate component
+      EX: How many rendered components are rendered in our TodoList component?
+      first argument is item we want to check (todoList), second is the class of item we want to look for (ConnectedTodo)
+    */
     var todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, ConnectedTodo);
 
+    // check the array length equals the array length of our Todo's array
     expect(todosComponents.length).toBe(todos.length);
   });
 
