@@ -8,6 +8,7 @@ var TodoSearch = require('TodoSearch');
 var TodoAPI = require('TodoAPI');
 
 var TodoApp = React.createClass({
+  // return default state of our application
   getInitialState: function () {
     return {
       showCompleted: false,
@@ -39,6 +40,7 @@ var TodoApp = React.createClass({
     });
   },
   render: function () {
+    // values we want to grab
     var {todos, showCompleted, searchText} = this.state;
     var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 

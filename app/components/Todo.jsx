@@ -5,6 +5,7 @@ var actions = require('actions');
 
 export var Todo = React.createClass({
   render: function () {
+    // grab props
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
     var renderDate = () => {
@@ -19,6 +20,7 @@ export var Todo = React.createClass({
       return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
     };
 
+    // '{text}' renders the value of the text variable
     return (
       <div className={todoClassName} onClick={() => {
           // this.props.onToggle(id);
