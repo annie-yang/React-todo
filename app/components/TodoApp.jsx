@@ -13,9 +13,10 @@ var TodoApp = React.createClass({
     return {
       showCompleted: false, // when start application, only see todos you haven't completed
       searchText: '', // set to empty string because you want to return all todo items no matter what the text is
-      todos: TodoAPI.getTodos()
+      todos: TodoAPI.getTodos() // fetch the todo list with whatever was saved in local storage
     };
   },
+  // anytime we make changes to the state, we set the todos
   componentDidUpdate: function () {
     TodoAPI.setTodos(this.state.todos);
   },

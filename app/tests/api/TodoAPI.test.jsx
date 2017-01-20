@@ -3,8 +3,9 @@ var expect = require('expect');
 var TodoAPI = require('TodoAPI');
 
 describe('TodoAPI', () => {
-	// clean out local storage
+  // gets called before every test
   beforeEach(() => {
+    // clean out local storage value
 	 localStorage.removeItem('todos');
   });
 
@@ -21,9 +22,10 @@ describe('TodoAPI', () => {
 		}];
 		TodoAPI.setTodos(todos);
 
-		 // 'toEqual' works great for objects in array
+     // store the value stored in the local storage todos item
 		var actualTodos = JSON.parse(localStorage.getItem('todos'));
 
+    // 'toEqual' works great for objects and array
 		expect(actualTodos).toEqual(todos);
 	 });
 
@@ -38,9 +40,10 @@ describe('TodoAPI', () => {
   describe('getTodos', () => {
 	 it('should return empty array for bad localstorage data', () => {
 		var actualTodos = TodoAPI.getTodos();
-		expect(actualTodos).toEqual([]);
+		expect(actualTodos).toEqual([]); // check if its value is equal to empty array
 	 });
 
+   // return the valid data
 	 it('should return todo if valid array in localstorage', () => {
 		var todos = [{
 		  id: 23,
