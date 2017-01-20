@@ -29,7 +29,7 @@ var TodoApp = React.createClass({
         {
           id: uuid(), // generate universely unique identifier (long string that is completely unique and random)
           text: text,
-          completed: false,
+          completed: false, // not completed at default
           createdAt: moment().unix(),
           completedAt: undefined
         }

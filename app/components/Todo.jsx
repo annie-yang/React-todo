@@ -20,7 +20,14 @@ export var Todo = React.createClass({
       return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
     };
 
-    // '{text}' renders the value of the text variable
+    /*
+      '{text}' renders the value of the text variable
+      'checked' takes true (checkbox will be checked) or false (checkbox won't be checked)
+
+      passing function indirectly using arrow function
+      'onToggle' method that gets passed down from the parent
+        pass in the 'id' we like to do to toggle
+    */
     return (
       <div className={todoClassName} onClick={() => {
           // this.props.onToggle(id);
