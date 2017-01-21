@@ -36,11 +36,23 @@ module.exports = {
     */
     return $.isArray(todos) ? todos :[];
   },
+  /*
+    takes 'todos' and filtered todos and returns a subset of the todos
+    wired up in 'TodoApp.jsx'
+  */
   filterTodos: function(todos, showCompleted, searchText){
+    // set 'filterTodos' equal to the 'todos' array
     var filteredTodos = todos;
 
-    // filter by 'showCompleted'
+    /*
+      filter by 'showCompleted'
+      calls individual items
+    */
     filteredTodos = filteredTodos.filter((todo) => {
+      /*
+        return false if it todo item is not completed (filtered out)
+          OR if the showCompleted is true, return every single item (shown to screen -- won't get shown to screen)
+      */
       return !todo.completed || showCompleted;
     });
 

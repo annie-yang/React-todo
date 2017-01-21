@@ -46,7 +46,8 @@ var TodoApp = React.createClass({
   render: function () {
     // values we want to grab
     var {todos, showCompleted, searchText} = this.state;
-    var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+    // take all todos and filtered todos and run them through filtered todos and pass that array to "TodoList"
+    var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText); //houses response
 
     return (
       <div>
@@ -56,7 +57,7 @@ var TodoApp = React.createClass({
           <div className="column small-centered small-11 medium-6 large-5">
             <div className="container">
               <TodoSearch onSearch={this.handleSearch}/>
-              <TodoList/>
+              <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
               <AddTodo onAddTodo={this.handleAddTodo}/>
             </div>
           </div>
