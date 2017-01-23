@@ -8,15 +8,22 @@ export var Todo = React.createClass({
     // grab props
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
-    var renderDate = () => {
-      var message = 'Created ';
-      var timestamp = createdAt;
 
+    // creates the timestamp
+    var renderDate = () => {
+      var message = 'Created '; // text shown before timestamp
+      var timestamp = createdAt; // timestamp itself
+
+      /*
+        if completed status is true
+          update message and timestamp
+      */
       if (completed) {
         message = 'Completed ';
         timestamp = completedAt;
       }
 
+      // return the message and format of the timestamp
       return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
     };
 
@@ -27,6 +34,8 @@ export var Todo = React.createClass({
       passing function indirectly using arrow function
       'onToggle' method that gets passed down from the parent
         pass in the 'id' we like to do to toggle
+
+      'renderDate' renders the date
     */
     return (
       <div className={todoClassName} onClick={() => {

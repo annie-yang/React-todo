@@ -31,12 +31,26 @@ var TodoApp = React.createClass({
           id: uuid(), // generate universely unique identifier (long string that is completely unique and random)
           text: text,
           completed: false, // not completed at default
-          createdAt: moment().unix(),
+          createdAt: moment().unix(), // using timestamp
           completedAt: undefined
         }
       ]
     });
   },
+  handleToggle: function(id){
+    var updatedTodos = this.state.todos.map((todo) => {
+      if(todo.id === id){
+        todo.completed = !todo.completed;
+
+        /*
+          if todo.completed is true, return timestamp
+          if todo.completed is toggled to false, clear out the completedAt date
+        */
+        todo.completedAt = todo.completed ? moment().unix() : undefined;
+      }
+
+      return todo;
+  });
   handleSearch: function (showCompleted, searchText) {
     this.setState({
       showCompleted: showCompleted,
