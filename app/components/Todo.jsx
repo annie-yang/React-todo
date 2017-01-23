@@ -7,6 +7,10 @@ export var Todo = React.createClass({
   render: function () {
     // grab props
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
+    /*
+      if task is completed, add a todo class and todo-completed class
+      add todo item if task is not completed
+    */
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
 
     // creates the timestamp
@@ -47,7 +51,7 @@ export var Todo = React.createClass({
         </div>
         <div>
           <p>{text}</p>
-          <p>{renderDate()}</p>
+          <p className="todo_subtext">{renderDate()}</p>
         </div>
       </div>
     )

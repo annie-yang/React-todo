@@ -3,7 +3,7 @@
   cursor: pointer;
   display: flex;
   padding: 1rem;
-  transition: background .3s ease;
+  transition: background .3s ease; // transition to background in 3 seconds
 
   p, input{
     margin: 0;
@@ -18,7 +18,7 @@
   }
 }
 
-.todo-subtext{
+.todo_subtext{
   color: #999;
 }
 

@@ -48,9 +48,12 @@ var TodoApp = React.createClass({
         */
         todo.completedAt = todo.completed ? moment().unix() : undefined;
       }
-
       return todo;
   });
+  this.setState({
+      todos: updatedTodos
+    });
+  },
   handleSearch: function (showCompleted, searchText) {
     this.setState({
       showCompleted: showCompleted,

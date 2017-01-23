@@ -12,6 +12,9 @@ export var TodoList = React.createClass({
       do something with "every todo" --> return a new piece of jsx that gets rendered to the screen for every element in the array
     */
     var renderTodos = () => {
+      /*
+        if array is 0, return a message
+      */
       if (todos.length === 0) {
         return (
           <p className="container__message">Nothing To Do</p>
