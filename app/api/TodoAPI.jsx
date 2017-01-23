@@ -58,18 +58,33 @@ module.exports = {
 
     // filter by 'searchText'
     filteredTodos = filteredTodos.filter((todo) => {
+      /*
+        get text off todo item
+        making search feature case insensitive
+      */
       var text = todo.text.toLowerCase();
+      /*
+        if return true, the item stays in array
+          if the length of the searchText is 0, we want to return every single item
+        if return false, the item gets removed
+          if the todo text contains the searchText phrase and is greater than -1, then success
+          use indexOf to check if searchText is inside (if it's found)
+          -1 if not found
+      */
       return searchText.length === 0 || text.indexOf(searchText) > -1;
     });
 
-    // sort todos with non-completed first
+    /*
+      re-sort todos with non-completed first
+      modifies existing ones
+    */
     filteredTodos.sort((a, b) => {
       if(!a.completed === false && b.completed){
-        return -1;
+        return -1; // a comes before b
       } else if(a.completed && !b.completed){
-        return 1;
+        return 1; // b comes before a
       } else {
-        return 0;
+        return 0; // no change (assume a and b are equal)
       }
     });
 
