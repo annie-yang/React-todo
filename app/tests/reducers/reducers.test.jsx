@@ -29,7 +29,7 @@ describe('Reducers', () => {
 
   describe('todosReducer', () => {
     it('should add new todo', () => {
-      var action = {
+      var action = { // function to dispatch
         type: 'ADD_TODO',
         text: 'Walk the dog'
       };
@@ -39,6 +39,10 @@ describe('Reducers', () => {
       expect(res[0].text).toEqual(action.text);
     });
 
+    /*
+      defined todos array with realistic todo item
+      generate action
+    */
     it('should toggle todo', () => {
       var todos = [{
         id: '123',
@@ -51,6 +55,7 @@ describe('Reducers', () => {
         type: 'TOGGLE_TODO',
         id: '123'
       };
+      // store response
       var res = reducers.todosReducer(df(todos), df(action));
 
       expect(res[0].completed).toEqual(false);

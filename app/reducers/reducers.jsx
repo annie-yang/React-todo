@@ -40,13 +40,14 @@ export var todosReducer = (state = [], action) => {
           return {
             ...todo,
             completed: nextCompleted,
+            // check if nextCompleted is true, and if false, clear the value
             completedAt: nextCompleted ? moment().unix() : undefined
           };
         } else {
           return todo;
         }
       });
-    default:
+    default: // if no action is recognized
       return state;
-  }
+  };
 };
