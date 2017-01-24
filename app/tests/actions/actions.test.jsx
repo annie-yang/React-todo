@@ -7,7 +7,7 @@ describe('Actions', () => {
       type: 'SET_SEARCH_TEXT',
       searchText: 'Some search text'
     };
-    var res = actions.setSearchText(action.searchText);
+    var res = actions.setSearchText(action.searchText); // storing response in 'res' variable
 
     expect(res).toEqual(action);
   });
@@ -39,5 +39,5 @@ describe('Actions', () => {
     var res = actions.toggleTodo(action.id);
 
     expect(res).toEqual(action);
-  })
+  });
 });

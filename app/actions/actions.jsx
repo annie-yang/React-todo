@@ -1,6 +1,6 @@
 export var setSearchText = (searchText) => {
   return {
-    type: 'SET_SEARCH_TEXT',
+    type: 'SET_SEARCH_TEXT', // 'type' property is required by redux
     searchText
   };
 };
@@ -22,5 +22,5 @@ export var toggleTodo = (id) => {
   return{
     type: 'TOGGLE_TODO',
     id
-  }
-}
+  };
+};

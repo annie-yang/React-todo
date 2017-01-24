@@ -31,7 +31,7 @@ export var TodoList = React.createClass({
             grabs the unique IDs from todo's
             '{...todo}' is a spread operator that passes down every attribute on an object (id and text) as props to a react component without explicitly defining everything
           */
-          <Todo key={todo.id} {...todo}/>
+          <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
         );
       });
     };
